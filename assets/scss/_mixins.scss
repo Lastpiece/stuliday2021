@@ -1,0 +1,11 @@
+@mixin flex($dir: row, $just:sapce-betwenn, $wrap: no-wrap) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content:$just ;
+    flex-wrap: $wrap;
+}
+
+@mixin center {
+    text-align: center;
+    margin: auto;
+}
