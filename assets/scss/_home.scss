@@ -1,0 +1,9 @@
+nav{
+    @include flex($just:space-around);
+    width: 100%;
+    padding-top: 1.5rem;
+}
+
+main{
+    @include center;
+}
