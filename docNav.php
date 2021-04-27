@@ -24,10 +24,9 @@
                 <p>STULIDAY</p>
             </div>
             <div>
-                <p>HOME</p>
-                <p>ABOUT US</p>
-                <p>PORTFOLIO</p>
-                <p>BLOG</p>
-                <p>CONTACT US</p>
+                <p><a href="">ACCEUIL</a></p>
+                <p><a href="">ANNONCE</a></p>
+                <p><a href="">PROFIL</a></p>
+                <p><a href="">CONNEXION</a></p>
             </div>
         </nav> 
