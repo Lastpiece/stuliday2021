@@ -1,6 +1,6 @@
 
 <?php require "inc/header.php"; ?>
-    <section>
+    <section class="hero is-light">
         <div class="container"> 
             <div class="column is-half">
                 <div>

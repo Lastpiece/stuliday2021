@@ -1,5 +1,5 @@
         <footer>
-            <p>Created<a href="" ></a>, by <a href="https://twitter.com/" >@lastpiece</a>.</p>
+            <p class="has-text-centered">Created<a href="" ></a>, by <a href="https://twitter.com/" >@lastpiece</a>.</p>
         </footer>
         
         <script async type="text/javascript" src="../js/bulma.js"></script>
