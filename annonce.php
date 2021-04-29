@@ -1,1 +1,2 @@
-<?php include('docNav.php'); ?>
+
+<?php require "header.php"; ?>

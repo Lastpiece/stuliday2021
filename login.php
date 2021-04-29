@@ -1,4 +1,4 @@
-<?php include('docNav.php'); ?>
+<?php require "header.php"; ?>
 <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -40,7 +40,6 @@
             </div>
         </div>
     </section>
-    <script async type="text/javascript" src="../js/bulma.js"></script>
-</body>
+    
 
-</html>
+<?php require "footer.php"; ?>
