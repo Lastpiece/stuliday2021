@@ -23,12 +23,8 @@
 
     <body>
         <header>
-            <nav class="navbar" role="navigation" aria-label="main navigation">
+            <nav class="navbar is-light" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="index.php">
-                        STULIDAY
-                    </a>
-
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
@@ -43,9 +39,6 @@
                         <a class="navbar-item">ANNONCE</a>
 
                         <a class="navbar-item">PROFIL</a>
-
-                        <a class="navbar-item">ANNONCE</a>
-
                     </div>
                 </div>
 
@@ -56,11 +49,8 @@
                             //? Vérification des variables des sessions : si elle n'existent pas, alors afficher un bouton se connecter
                             if (empty($_SESSION)) {
                             ?>
-                                <a href="./signin.php" class="button is-primary">
-                                    <strong>INCRIPTION</strong>
-                                </a>
-                                <a href="./login.php" class="button is-light">
-                                    CONNEXION
+                                <a href="./login.php" class="button is-success">
+                                    <strong>CONNEXION</strong>
                                 </a>
                             <?php
                                 }else{
@@ -79,14 +69,3 @@
                 </div>
             </nav>
         </header>
-        <!-- <nav>
-            <div>
-                <p>STULIDAY</p>
-            </div>
-            <div>
-                <p><a href="">ACCEUIL</a></p>
-                <p><a href="">ANNONCE</a></p>
-                <p><a href="">PROFIL</a></p>
-                <p><a href="./sign_in_login.php">CONNEXION</a></p>
-            </div>
-        </nav>  -->

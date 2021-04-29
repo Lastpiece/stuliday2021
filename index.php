@@ -4,7 +4,7 @@
             <h1>Stuliday</h1>
             <p>Vos location saisonnière entre particuliers</p>
             <p>
-                <a href="#">Learn more</a>
+                <a href="#">En savoir plus</a>
             </p>
         </main>
 
