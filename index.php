@@ -1,4 +1,4 @@
-<?php require "header.php";?>
+<?php require "inc/header.php";?>
 
         <main>
             <h1>Stuliday</h1>
@@ -9,4 +9,4 @@
         </main>
 
 
-<?php require "footer.php"; ?>
+<?php require "inc/footer.php"; ?>

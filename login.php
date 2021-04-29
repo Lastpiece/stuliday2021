@@ -5,7 +5,7 @@
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-black">Se connecter</h3>
                     <hr class="login-hr">
-                    <p class="subtitle has-text-black">Enrez vos identifiants.</p>
+                    <p class="subtitle has-text-black">Entrez vos identifiants.</p>
                     <div class="box">
                         <form>
                             <div class="field">
