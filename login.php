@@ -1,4 +1,44 @@
 <?php require "inc/header.php"; ?>
+<?php
+$alert = false;
+
+if(!empty($_POST['email_login']) && !empty($_POST['password_login']) && isset($_POST['submit_login'])){
+    $email = htmlspecialchars($_POST['email_login']);
+    $password = htmlspecialchars($_POST['password_login']);
+    
+    try{
+        $sqlMail ="SELECT * FROM users WHERE email ='{$email}'";
+        $resultMail = $connect->query($sqlMail);
+        $user = $resultMail->fetch(PDO::FETCH_ASSOC);
+        if($user) {
+            $dbpassword = $user['password'];
+            if(password_verify($password, $dbpassword)){
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['username'] = $user['username'];
+                $alert = true;
+                $type = 'success';
+                $message = 'Vous êtes connectés!';
+                unset($_POST);
+                header('Location: profil.php');
+            } else{
+                $alert = true;
+                $type = 'danger';
+                $message = "Le mot de passe est erroné";
+                unset($_POST);
+                } 
+        }else{
+            $alert = true;
+            $type = 'warning';
+            $message = "Ce compte n'existe pas";
+            unset($_POST);
+            }
+    }catch (PDOException $error) {
+        echo "Error: " . $error->getMessage();
+    }
+}
+
+?>
 <section class="hero is-light is-medium">
         <div>
             <div class="container has-text-centered">
@@ -10,16 +50,16 @@
                         <form>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" name="email" type="email" placeholder="Email" autofocus="" required>
+                                    <input class="input is-large" name="email_login" type="email" placeholder="Email" autofocus="" required>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" name="password" type="password" placeholder="Mot de passe" required>
+                                    <input class="input is-large" name="password_login" type="password" placeholder="Mot de passe" required>
                                 </div>
                             </div>
-                            <button type="submit" name="login_submit" class="button is-block is-info is-large is-fullwidth">C'est parti !<i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                            <button type="submit" name="submit_login" class="button is-block is-info is-large is-fullwidth">C'est parti !<i class="fa fa-sign-in" aria-hidden="true"></i></button>
                         </form>
                     </div>
                     <p class="has-text-grey">
