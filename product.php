@@ -2,11 +2,11 @@
 <?php require "inc/header.php"; ?>
     <section class="hero is-light">
         <div class="container"> 
-        <div v-for="card in cardData" key="card.id" class="column">
+        <div class="column">
             <div class="card large">
               <div class="card-image">
                 <figure class="image is-16by9">
-                  <img :src="card.image" alt="Image">
+                  <img src="card.image" alt="Image">
                 </figure>
               </div>
               <div class="card-content">

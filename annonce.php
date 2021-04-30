@@ -9,11 +9,11 @@ $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
           <?php
           foreach ($products as $product) {
           ?>
-          <div v-for="card in cardData" key="card.id" class="column is-4">
+          <div class="column is-4">
             <div class="card large">
               <div class="card-image">
                 <figure class="image is-16by9">
-                  <img :src="card.image" alt="Image">
+                  <img src="noImage" alt="Image_product">
                 </figure>
               </div>
               <div class="card-content">
