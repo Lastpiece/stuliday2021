@@ -38,7 +38,7 @@
 
                         <a href="annonce.php" class="navbar-item">ANNONCE</a>
 
-                        <a class="navbar-item">PROFIL</a>
+                        <!-- <a href="./profil.php" class="navbar-item">PROFIL</a> -->
                     </div>
                 </div>
 

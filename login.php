@@ -10,16 +10,16 @@
                         <form>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" type="email" placeholder="Email" autofocus="" required>
+                                    <input class="input is-large" name="email" type="email" placeholder="Email" autofocus="" required>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" type="password" placeholder="Mot de passe" required>
+                                    <input class="input is-large" name="password" type="password" placeholder="Mot de passe" required>
                                 </div>
                             </div>
-                            <button class="button is-block is-info is-large is-fullwidth">C'est parti !<i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                            <button type="submit" name="login_submit" class="button is-block is-info is-large is-fullwidth">C'est parti !<i class="fa fa-sign-in" aria-hidden="true"></i></button>
                         </form>
                     </div>
                     <p class="has-text-grey">
