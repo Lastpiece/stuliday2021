@@ -6,9 +6,11 @@ $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
       <div class="section is-flex is-flex-wrap-wrap">
         <div id="app" class="row columns is-multiline">
+        
           <?php
           foreach ($products as $product) {
           ?>
+
           <div class="column is-4">
             <div class="card large">
               <div class="card-image">
@@ -33,55 +35,11 @@ $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
               </div>
             </div>
           </div>
+
           <?php
           }
           ?>
-          <!-- <div v-for="card in cardData" key="card.id" class="column is-4">
-            <div class="card large">
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <img :src="card.image" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p>
-                      <span class="title is-4 no padding">
-                        <a href="Produit?"> Nom du produit</a> </span> </p>
-                    <p class="subtitle is-6">Categorie</p>
-                  </div>
-                </div>
-                <div class="content">
-                  Description du produit
-                  <div class="background-icon"><span class="icon-twitter"></span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div v-for="card in cardData" key="card.id" class="column is-4">
-            <div class="card large">
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <img :src="card.image" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p>
-                      <span class="title is-4 no padding">
-                        <a href="Produit?"> Nom du produit</a> </span> </p>
-                    <p class="subtitle is-6">Categorie</p>
-                  </div>
-                </div>
-                <div class="content">
-                  Description du produit
-                  <div class="background-icon"><span class="icon-twitter"></span></div>
-                </div>
-              </div>
-            </div>
-          </div> -->
+
         </div> 
       </div>
     </div>
