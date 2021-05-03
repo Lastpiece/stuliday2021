@@ -4,7 +4,7 @@ $sqlProducts = "SELECT p.*, u.username, c.categories_name FROM products AS p LEF
 $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="container">
-      <div class="section">
+      <div class="section is-flex is-flex-wrap-wrap">
         <div id="app" class="row columns is-multiline">
           <?php
           foreach ($products as $product) {
