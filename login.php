@@ -47,7 +47,7 @@ if(!empty($_POST['email_login']) && !empty($_POST['password_login']) && isset($_
                     <hr class="login-hr">
                     <p class="subtitle has-text-black">Entrez vos identifiants.</p>
                     <div class="box">
-                        <form>
+                        <form method ="POST" action ="#">
                             <div class="field">
                                 <div class="control">
                                     <input class="input is-large" name="email_login" type="email" placeholder="Email" autofocus="" required>

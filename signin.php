@@ -13,26 +13,19 @@ if(!empty($_POST['email_signin']) AND !empty($_POST['password1_signin']) AND !em
             $countMail = $resultMail->fetchColumn();
             if (!$countMail) {
                 // echo "Etape 2 : Email BDD ok <br>";
-                //? Etape 3 : Vérification de la disponibilité de l'username dans la BDD
                 $sqlUsername = "SELECT * FROM users WHERE username = '{$username}'";
                 $resultUsername = $connect->query($sqlUsername);
                 $countUsername = $resultUsername->fetchColumn();
                 if (!$countUsername) {
-                    // echo "Etape 3 : Username BDD ok <br>";
-                    //? Etape 4 : Vérification de la concordance des mots de passe
+                    echo "Etape 3 : Username BDD ok <br>";
                     if ($password1 === $password2) {
-                        // echo "Etape 4 : Concordance Mdp ok <br>";
-                        //? Etape 5 : Hashage du mot de passe
                         $hashedPassword = password_hash($password1, PASSWORD_DEFAULT);
-                        // echo "Etape 5 : Hashage Mdp ok <br>";
-                        //? Etape 6 : Enregistrement des données utilisateur
                         $sth = $connect->prepare("INSERT INTO users (email,username,password) VALUES (:email,:username,:password)");
                         $sth->bindValue(':email', $email);
                         $sth->bindValue(':username', $username);
                         $sth->bindValue(':password', $hashedPassword);
                         $sth->execute();
                         echo "L'utilisateur a bien été enregistré !";
-                        //? Etape 7 : Ajout de messages d'erreurs adaptés.
                     } else {
                         echo "Les mots de passe ne sont pas concordants.";
                         unset($_POST);
@@ -62,7 +55,7 @@ if(!empty($_POST['email_signin']) AND !empty($_POST['password1_signin']) AND !em
                     <hr class="login-hr">
                     <p class="subtitle has-text-black">Entrez vos informations.</p>
                     <div class="box">
-                        <form>
+                        <form method ="POST" action ="#">
                             <div class="field">
                                 <div class="control">
                                     <input class="input is-large" type="text" name="username_signin" placeholder="Nom d'utilisateur" autofocus="">
@@ -82,10 +75,10 @@ if(!empty($_POST['email_signin']) AND !empty($_POST['password1_signin']) AND !em
 
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" name="submit_signin" type="password" id ="InputPassword2" name="password2_signin" placeholder="Confirmation" autofocus="">
+                                    <input class="input is-large" type="password" id ="InputPassword2" name="password2_signin" placeholder="Confirmation" autofocus="">
                                 </div>
                             </div>
-                            <button type="submit" class="button is-block is-info is-large is-fullwidth">C'est parti !<i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                            <button type="submit" name="submit_signin" class="button is-block is-info is-large is-fullwidth">C'est parti !<i class="fa fa-sign-in" aria-hidden="true"></i></button>
                         </form>
                     </div>
                 </div>
