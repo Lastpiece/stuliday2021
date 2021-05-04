@@ -67,7 +67,7 @@ if(isset($_POST['submit_product']) && !empty($_POST['product_name']) && !empty($
                         <div class="control">
                         <label for="InputCategory">Catégorie</label>
                             <select class="input is-large" id ="InputCategory" value=" " name="product_category" required>
-
+                            <!-- <option value="<?php echo $product['category']; ?>"><?php echo $product['categories_name']; ?></option> -->
                             <?php
                             foreach ($categories as $category){
                             ?>

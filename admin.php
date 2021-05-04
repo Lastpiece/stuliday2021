@@ -9,6 +9,9 @@
         if($admin = $resultAdmin->fetch(PDO::FETCH_ASSOC)){
             $sqlUsers = "SELECT * FROM users WHERE id != '{$admin_id}'";
             $users = $connect->query($sqlUsers)->fetchAll(PDO::FETCH_ASSOC);
+
+            $sqlProducts = "SELECT p.*, u.username, c.categories_name FROM products AS p LEFT JOIN users AS u ON p.author = u.id LEFT JOIN categories AS c ON p.category = c.categories_id";
+            $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <!-- <div class="box is-large"> -->
                 <table class="table is-hoverable is-fullwidth is-bordered">
@@ -29,6 +32,38 @@
                                 <td><?php echo $user['username'] ?></td>
                                 <td><?php echo $user['email'] ?></td>
                                 <td><?php echo $user['role'] ?></td>
+                                <td>Modifier</td>
+                                <td>Supprimer</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            <!-- </div> -->
+            <!-- <div class="box is-large"> -->
+                <table class="table is-hoverable is-fullwidth is-bordered">
+                    <thead>
+                        <tr class="is-selected">
+                        <th># id</th>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>price</th>
+                        <th>category</th>
+                        <th>author</th>
+                        <th>created at</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($products as $product) { ?>
+                            <tr>
+                                <th><?php echo $product['products_id'] ?></th>
+                                <td><?php echo $product['products_name'] ?></td>
+                                <td><?php echo $product['products_description'] ?></td>
+                                <td><?php echo $product['products_price'] ?></td>
+                                <td><?php echo $product['categories_name'] ?></td>
+                                <td><?php echo $product['username'] ?></td>
+                                <td><?php echo $product['created_at'] ?></td>
                                 <td>Modifier</td>
                                 <td>Supprimer</td>
                             </tr>
