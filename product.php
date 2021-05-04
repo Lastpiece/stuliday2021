@@ -28,6 +28,7 @@ $product = $connect->query($sqlProduct)->fetch(PDO::FETCH_ASSOC);
                   <p class="subtitle is-8"><?php echo $product['products_description']; ?></p>
                   <p class="subtitle is-8"><?php echo $product['products_price']; ?>€</p>
                   <p class="subtitle is-8">Fait le :<?php echo $product['created_at']; ?></p>
+                  <a href="editproduct.php?id=<?php echo $product['products_id']; ?>">Modifier</a>
                 </div>
               </div>
             </div>
