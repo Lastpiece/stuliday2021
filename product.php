@@ -33,13 +33,5 @@ $product = $connect->query($sqlProduct)->fetch(PDO::FETCH_ASSOC);
             </div>
           </div>
     </section>
+
 <?php require "inc/footer.php"; ?>
-    <!-- <div class="column is-half">
-                <div>
-                    une image
-                    <img src="" alt="">
-                </div>
-                <h2>Nom du produit</h2>
-                <p>Description du produit</p>
-            </div>
-        </div>
