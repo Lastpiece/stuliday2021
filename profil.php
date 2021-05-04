@@ -14,8 +14,8 @@
                     <h3 class="subtitle">
                         Vous avez le <?php echo $profilInfo['role']; ?>
                     </h3>
-                    <button type="button" name="btn_lookArt" class="button is-block is-info is-large"> Voir mes articles publiés.</button>
-                    <a href="addproducts.php" class="button is-block is-info is-large">Ajouter un article.</a>
+                    <a href="myProducts.php" class="button is-block is-info is-large"> Voir mes articles publiés.</a>
+                    <a href="addproducts.php" class="button is-block is-info is-large mt-3">Ajouter un article.</a>
                     <?php
                     if($profilInfo['role'] === 'ROLE_ADMIN'){
                         echo '<a href="admin.php" class="button is-block is-success is-large is-fullwidth">Accéder à l\'espace administrateur.</a>';

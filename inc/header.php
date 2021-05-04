@@ -34,7 +34,7 @@
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
-                        <a href="./index.php" class="navbar-item">ACCEUIL</a>
+                        <a href="./index.php" class="navbar-item">ACCUEIL</a>
 
                         <a href="annonce.php" class="navbar-item">ANNONCE</a>
 

@@ -1,6 +1,7 @@
 <?php require "inc/header.php"; ?>
 <?php
-$sqlProducts = "SELECT p.*, u.username, c.categories_name FROM products AS p LEFT JOIN users AS u ON p.author = u.id LEFT JOIN categories AS c ON p.category = c.categories_id";
+$userId = $_SESSION['id'];
+$sqlProducts = "SELECT p.*, u.username, c.categories_name FROM products AS p LEFT JOIN users AS u ON p.author = u.id LEFT JOIN categories AS c ON p.category = c.categories_id WHERE p.author = {$userId}";
 $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="container">
@@ -27,6 +28,7 @@ $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
                       <p class="subtitle is-6"><?php echo $product['categories_name']; ?></p>
                       <p class="subtitle is-8"><?php echo $product['products_price']; ?>€</p>
                       <p class="subtitle is-8"><?php echo $product['created_at']; ?></p>
+                      <a href="editproduct.php?id=<?php echo $product['products_id']; ?>">Modifier</a>
                   </div>
                 </div>
                 <div class="content">
