@@ -32,8 +32,8 @@
                                 <td><?php echo $user['username'] ?></td>
                                 <td><?php echo $user['email'] ?></td>
                                 <td><?php echo $user['role'] ?></td>
-                                <td>Modifier</td>
-                                <td>Supprimer</td>
+                                <td><a href="edituser.php?id=<?php echo $user['id']; ?>">Modifier</a></td>
+                                <td><a href="?delete">Supprimer</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -64,8 +64,8 @@
                                 <td><?php echo $product['categories_name'] ?></td>
                                 <td><?php echo $product['username'] ?></td>
                                 <td><?php echo $product['created_at'] ?></td>
-                                <td>Modifier</td>
-                                <td>Supprimer</td>
+                                <td><a href="editproduct.php?id=<?php echo $product['products_id']; ?>">Modifier</a></td>
+                                <td><a href="?delete">Supprimer</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
