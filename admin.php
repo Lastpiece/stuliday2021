@@ -12,6 +12,7 @@
 
             $sqlProducts = "SELECT p.*, u.username, c.categories_name FROM products AS p LEFT JOIN users AS u ON p.author = u.id LEFT JOIN categories AS c ON p.category = c.categories_id";
             $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
+
             ?>
             <!-- <div class="box is-large"> -->
                 <table class="table is-hoverable is-fullwidth is-bordered">
@@ -22,7 +23,7 @@
                         <th>Email</th>
                         <th>Role</th>
                         <th>Edit</th>
-                        <th>Delete</th>
+                        <!-- <th>Delete</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +34,7 @@
                                 <td><?php echo $user['email'] ?></td>
                                 <td><?php echo $user['role'] ?></td>
                                 <td><a href="edituser.php?id=<?php echo $user['id']; ?>">Modifier</a></td>
-                                <td><a href="?delete">Supprimer</a></td>
+                                <!-- <td><a href="">Supprimer</a></td> -->
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -65,7 +66,7 @@
                                 <td><?php echo $product['username'] ?></td>
                                 <td><?php echo $product['created_at'] ?></td>
                                 <td><a href="editproduct.php?id=<?php echo $product['products_id']; ?>">Modifier</a></td>
-                                <td><a href="?delete">Supprimer</a></td>
+                                <td><a href="deleteconfirm.php?id=<?php echo $product['products_id'];?>">Supprimer</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
