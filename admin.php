@@ -34,7 +34,15 @@
                                 <td><?php echo $user['email'] ?></td>
                                 <td><?php echo $user['role'] ?></td>
                                 <td><a href="edituser.php?id=<?php echo $user['id']; ?>">Modifier</a></td>
-                                <!-- <td><a href="">Supprimer</a></td> -->
+                                <td>
+                                    <form action="" method="POST">
+                                    Supprimer
+                                        <input type="hidden" name="csrf_token" value="">
+                                        <input type="hidden" name="id" value="">
+                                        <input type="submit" name="submit_delete" value="delete">
+                                        
+                                    </form>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
