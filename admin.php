@@ -35,11 +35,10 @@
                                 <td><?php echo $user['role'] ?></td>
                                 <td><a href="edituser.php?id=<?php echo $user['id']; ?>">Modifier</a></td>
                                 <td>
-                                    <form action="" method="POST">
-                                    Supprimer
-                                        <input type="hidden" name="csrf_token" value="">
-                                        <input type="hidden" name="id" value="">
-                                        <input type="submit" name="submit_delete" value="delete">
+                                    <form action="deleteconfirm.php" method="POST">
+                                        <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
+                                        <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+                                        <input type="submit" name="submit_deleteUser" value="supprimer">
                                         
                                     </form>
                                 </td>
@@ -74,7 +73,14 @@
                                 <td><?php echo $product['username'] ?></td>
                                 <td><?php echo $product['created_at'] ?></td>
                                 <td><a href="editproduct.php?id=<?php echo $product['products_id']; ?>">Modifier</a></td>
-                                <td><a href="deleteconfirm.php?id=<?php echo $product['products_id'];?>">Supprimer</a></td>
+                                <td>
+                                    <form action="deleteconfirm.php" method="POST">
+                                        <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
+                                        <input type="hidden" name="product_id" value="<?php echo $product['products_id'] ?>">
+                                        <input type="submit" name="submit_deleteProduct" value="supprimer">
+                                        
+                                    </form>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
