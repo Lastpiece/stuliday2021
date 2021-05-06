@@ -2,23 +2,20 @@
 <?php
 if(isset($_POST['submit_deleteUser'])){
     $id = $_POST['id'];
-    
 }elseif(isset($_POST['submit_deleteProduct'])){
     $id = $_POST['product_id'];
-    
 }
 $token = $_POST['csrf_token'];
 
-    if(!empty($_SESSION)){
+    if(!empty($_SESSION['id'])){
         $admin_id = $_SESSION['id'];
         $sqlAdmin = "SELECT * FROM users WHERE id = '{$admin_id}' && role ='ROLE_ADMIN'";
         $resultAdmin = $connect->query($sqlAdmin);
 
         if($admin = $resultAdmin->fetch(PDO::FETCH_ASSOC)){
-            // $sqlDelete = "DELETE * FROM products WHERE products_id={$id}";
-            if(isset($_POST['submit_deleteUser']) && hash_equals($_POST['csrf_token'], $token)){
+            if((isset($_POST['submit_deleteUser']) || isset($_POST['submit_deleteProduct'])) && hash_equals($_POST['csrf_token'], $token)){
                 try{
-                    $sth = $connect->prepare("DELETE * FROM products WHERE products_id=:id");
+                    $sth = $connect->prepare("DELETE FROM products WHERE products_id=:id");
                     $sth->bindValue(':id',$id);
                     $sth->execute();
                     if($sth->execute()){
@@ -31,24 +28,25 @@ $token = $_POST['csrf_token'];
                 }
             }
     
-        }else{}
+        }
+        // else{}
     }
 
-    if(isset($_POST['submit_delete']) && hash_equals($_POST['csrf_token'], $token)){
-        try{
-            $sth =$connect->prepare("DELETE * FROM users WHERE id =:id");
-            $sth->bindValue(':id', $id);
-            $sth->execute();
-            if($sth->execute()){
-                header('Location: admin.php');
-            }else{
-                echo "Il y a eu un probleme.";
-            }
+    // if(isset($_POST['submit_deleteConf']) && hash_equals($_POST['csrf_token'], $token)){
+    //     try{
+    //         $sth =$connect->prepare("DELETE FROM users WHERE id =:id");
+    //         $sth->bindValue(':id', $id);
+    //         $sth->execute();
+    //         if($sth->execute()){
+    //             header('Location: admin.php');
+    //         }else{
+    //             echo "Il y a eu un probleme.";
+    //         }
             
-        } catch (PDOException $error) {
-            echo 'Erreur: '. $error->getMessage();
-        }
-    }
+    //     } catch (PDOException $error) {
+    //         echo 'Erreur: '. $error->getMessage();
+    //     }
+    // }
 
 ?>
 

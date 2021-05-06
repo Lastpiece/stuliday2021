@@ -1,7 +1,7 @@
 <?php require "inc/header.php"; ?>
 <?php 
 
-    if(!empty($_SESSION)){
+    if(!empty($_SESSION['id'])){
         $admin_id = $_SESSION['id'];
         $sqlAdmin = "SELECT * FROM users WHERE id = '{$admin_id}' && role ='ROLE_ADMIN'";
         $resultAdmin = $connect->query($sqlAdmin);
@@ -23,7 +23,7 @@
                         <th>Email</th>
                         <th>Role</th>
                         <th>Edit</th>
-                        <!-- <th>Delete</th> -->
+                        <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>

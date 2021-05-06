@@ -1,6 +1,6 @@
 <?php require "inc/header.php"; ?>
 <?php
-    if(!empty($_SESSION)){
+    if(!empty($_SESSION['id'])){
         $user_id = $_SESSION["id"];
         $sqlProfilInfo = "SELECT * FROM  users WHERE id = '{$user_id}'";
 

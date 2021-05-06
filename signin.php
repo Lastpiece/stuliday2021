@@ -1,3 +1,4 @@
+<?php $page = "Sign in"; ?>
 <?php require "inc/header.php"; ?>
 <?php
 if(!empty($_POST['email_signin']) AND !empty($_POST['password1_signin']) AND !empty($_POST['password2_signin']) AND !empty($_POST['username_signin']) AND isset($_POST['submit_signin'])){

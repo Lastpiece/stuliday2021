@@ -1,3 +1,4 @@
+<?php $page = "Products"; ?>
 <?php require "inc/header.php"; ?>
 <?php
 $sqlProducts = "SELECT p.*, u.username, c.categories_name FROM products AS p LEFT JOIN users AS u ON p.author = u.id LEFT JOIN categories AS c ON p.category = c.categories_id";

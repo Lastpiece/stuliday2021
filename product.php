@@ -37,7 +37,7 @@ $isAdmin = $connect->query($sqlIsAdmin)->fetch(PDO::FETCH_ASSOC);
                   <p class="subtitle is-8">Fait le :<?php echo $product['created_at']; ?></p>
 
                   <?php
-                    if(!empty($_SESSION) && $isAdmin['role'] === 'ROLE_ADMIN'){
+                    if(!empty($_SESSION['id']) && $isAdmin['role'] === 'ROLE_ADMIN'){
                   ?>
 
                   <a href="editproduct.php?id=<?php echo $product['products_id']; ?>">Modifier</a>

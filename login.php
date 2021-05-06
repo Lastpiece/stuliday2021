@@ -1,3 +1,4 @@
+<?php $page = "Login"; ?>
 <?php require "inc/header.php"; ?>
 <?php
 $alert = false;

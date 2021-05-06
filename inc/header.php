@@ -47,7 +47,7 @@
                         <div class="buttons">
                             <?php
                             //? Vérification des variables des sessions : si elle n'existent pas, alors afficher un bouton se connecter
-                            if (empty($_SESSION)) {
+                            if (empty($_SESSION['id'])) {
                             ?>
                                 <a href="./login.php" class="button is-success">
                                     <strong>CONNEXION</strong>

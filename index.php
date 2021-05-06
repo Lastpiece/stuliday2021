@@ -1,3 +1,4 @@
+<?php $page = 'index'; ?>
 <?php require "inc/header.php";?>
 
 <section class="hero is-light is-medium">
