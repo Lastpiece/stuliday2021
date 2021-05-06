@@ -54,7 +54,6 @@
                                 </a>
                             <?php
                                 }else{
-                                    // var_dump($_SESSION);
                             ?>
                                 <a href="./profil.php" class="button is-light">
                                     <strong><?php echo $_SESSION['username']; ?></strong>

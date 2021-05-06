@@ -9,7 +9,6 @@ $product = $connect->query($sqlProduct)->fetch(PDO::FETCH_ASSOC);
 $sqlCategory = 'SELECT * FROM categories';
 $categories = $connect->query($sqlCategory)->fetchAll();
 
-// var_dump($_POST);
 
 if(isset($_POST['submit_product']) && !empty($_POST['product_name']) && !empty($_POST['product_price']) && !empty($_POST['product_description']) && !empty($_POST['product_category'])){
     $name = strip_tags($_POST['product_name']);

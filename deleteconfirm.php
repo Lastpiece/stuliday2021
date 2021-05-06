@@ -14,7 +14,6 @@ if(isset($_POST['submit_deleteUser'])){
     $column = $_POST['column'];
 }
 $token = $_POST['csrf_token'];
-// var_dump($_POST, $table, $column);
     if(!empty($_SESSION['id'])){
         $admin_id = $_SESSION['id'];
         $sqlAdmin = "SELECT * FROM users WHERE id = '{$admin_id}' && role ='ROLE_ADMIN'";

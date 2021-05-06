@@ -6,7 +6,6 @@ $user = $connect->query($sqlUser)->fetch(PDO::FETCH_ASSOC);
 ?>
 <?php
 
-// var_dump($_POST);
 
 if(isset($_POST['submit_user']) && !empty($_POST['username']) && !empty($_POST['user_email']) && !empty($_POST['user_role'])){
     $username = strip_tags($_POST['username']);

@@ -10,7 +10,6 @@ $userId =  $_SESSION["id"];
 $sqlIsAdmin = "SELECT role FROM users WHERE id={$userId}";
 $isAdmin = $connect->query($sqlIsAdmin)->fetch(PDO::FETCH_ASSOC);
 
-// var_dump($isAdmin);
 ?>
 
     <section class="hero is-light">
