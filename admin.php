@@ -39,7 +39,6 @@
                                         <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
                                         <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
                                         <input type="submit" name="submit_deleteUser" value="supprimer">
-                                        
                                     </form>
                                 </td>
                             </tr>
