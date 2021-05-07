@@ -12,24 +12,63 @@ if(isset($_POST['submit_product']) && !empty($_POST['product_name']) && !empty($
     $category = strip_tags($_POST['product_category']);
     $user_id = $_SESSION['id'];
 
-    if(is_int($price) && $price > 0){
-        try{
-            $sth = $connect->prepare("INSERT INTO products
-            (products_name, products_price, products_description, category, author)
-            VALUES
-            (:products_name, :products_price, :products_description, :category, :author)");
-            $sth->bindValue(':products_name', $name);
-            $sth->bindValue(':products_description', $description);
-            $sth->bindValue(':products_price', $price);
-            $sth->bindValue(':author', $user_id);
-            $sth->bindValue(':category', $category);
+    $image = $_FILES['product_image'];
 
-            $sth->execute();
-            echo "Votre article à été ajouter avec succès.";
-            header('Location: annonce.php');
-
-        } catch(PDOException $error){
-            echo 'Erreur: '.$error->getMessage();
+    if($image['size'] > 0 ){
+        if ($image['size'] <= 1000000){
+            $valid_ext = ['jpg', 'jpeg', 'png'];
+            $check_ext = strtolower(substr(strrchr($image['name'], '.'),1));
+            if(in_array($check_ext, $valid_ext)){
+                $image_name = uniqid() . '_' . $image['name'];
+                $upload_dir = "./public/uploads/";
+                $upload_name = $upload_dir . $image_name;
+                $upload_result = move_uploaded_file($image['tmp_name'], $upload_name);
+                if($upload_result){
+                    if(is_int($price) && $price > 0){
+                        try{
+                            $sth = $connect->prepare("INSERT INTO products
+                            (products_name, products_price, products_description, category, author, image)
+                            VALUES
+                            (:products_name, :products_price, :products_description, :category, :author, :image)");
+                            $sth->bindValue(':products_name', $name);
+                            $sth->bindValue(':products_description', $description);
+                            $sth->bindValue(':products_price', $price);
+                            $sth->bindValue(':author', $user_id);
+                            $sth->bindValue(':category', $category);
+                            $sth->bindValue(':image', $image_name);
+                
+                            $sth->execute();
+                            echo "Votre article à été ajouter avec succès.";
+                            // header('Location: annonce.php');
+                
+                        } catch(PDOException $error){
+                            echo 'Erreur: '.$error->getMessage();
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }else{
+        if(is_int($price) && $price > 0){
+            try{
+                $sth = $connect->prepare("INSERT INTO products
+                (products_name, products_price, products_description, category, author)
+                VALUES
+                (:products_name, :products_price, :products_description, :category, :author)");
+                $sth->bindValue(':products_name', $name);
+                $sth->bindValue(':products_description', $description);
+                $sth->bindValue(':products_price', $price);
+                $sth->bindValue(':author', $user_id);
+                $sth->bindValue(':category', $category);
+    
+                $sth->execute();
+                echo "Votre article à été ajouter avec succès.";
+                header('Location: annonce.php');
+    
+            } catch(PDOException $error){
+                echo 'Erreur: '.$error->getMessage();
+            }
         }
     }
 }
@@ -39,7 +78,7 @@ if(isset($_POST['submit_product']) && !empty($_POST['product_name']) && !empty($
     <div class="hero-body">
         <div class="container has-text-centered">
             <div class="box">
-                <form method ="POST" action ="#">
+                <form method ="POST" action ="#" enctype="multipart/form-data">
                     <div class="field">
                         <div class="control">
                             <input class="input is-large" type="text" name="product_name" placeholder="Nom de l'article" autofocus="" required>
@@ -56,6 +95,29 @@ if(isset($_POST['submit_product']) && !empty($_POST['product_name']) && !empty($
                             <input class="input is-large" min="1" max="999999999" type="number" name="product_price" placeholder="Prix" required>
                         </div>
                     </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-large"  type="file" name="product_image" id="inputImage" accept=".png, .jpg, .jpeg">
+                        </div>
+                    </div>
+
+                    <!-- <div class="file has-name is-fullwidth">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="product_image" accept=".png, .jpg, .jpeg">
+                            <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose a file…
+                            </span>
+                            </span>
+                            <span class="file-name">
+                                <?php echo $image['name']; ?>
+                            </span>
+                        </label>
+                    </div> -->
 
                     <div class="field">
                         <div class="control">

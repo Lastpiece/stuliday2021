@@ -16,7 +16,16 @@ $products = $connect->query($sqlProducts)->fetchAll(PDO::FETCH_ASSOC);
             <div class="card large">
               <div class="card-image">
                 <figure class="image is-16by9">
-                  <img src="noImage" alt="Image_product">
+                <?php if(is_null($product['image']) || empty($product['image'])){
+                  echo '<img src="./public/uploads/noImg.png" alt="product_image" width="200"/>';
+                }else{
+                ?>
+                  <img src="./public/uploads/<?php echo $product['image']; ?>" alt="<?php echo $product['products_name']; ?>" width='200' />
+                <?php 
+                }
+                ?>
+                
+                
                 </figure>
               </div>
               <div class="card-content">
